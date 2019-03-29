@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <Resource id="JDBC/OlympicDB" type="javax.sql.DataSource">#Fri Mar 29 17:18:18 EDT 2019
+jdbcDriver=org.postgresql.Driver
+password=CSI2532
+userName=postgres
+jdbcUrl=jdbc\:postgresql\://localhost\:5432/postgres
+</Resource>
+</resources>
