@@ -43,15 +43,24 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
 
       out.write("<!DOCTYPE html>  \n");
       out.write("<html>  \n");
-      out.write("<head>  \n");
+      out.write("<head> \n");
+      out.write("<style>\n");
+      out.write("table, th, td {\n");
+      out.write("  border: 1px solid black;\n");
+      out.write("}\n");
+      out.write("</style>\n");
       out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">  \n");
-      out.write("<title>JSP CRUD Example</title>  \n");
+      out.write("<title>Olympic Database</title>  \n");
       out.write("</head>  \n");
       out.write("<body>  \n");
-      out.write("<h1>JSP CRUD Example</h1>  \n");
-      out.write("<a href=\"addpersonform.jsp\">Add User</a>  \n");
-      out.write("<a href=\"viewperson.jsp\">View Users</a>  \n");
-      out.write("  \n");
+      out.write("<h1>Olympic Database</h1>  \n");
+      out.write("<table style=\"width:50%\">\n");
+      out.write("    <tr>\n");
+      out.write("        <th>Person</th>\n");
+      out.write("        <td> <a href=\"person/addpersonform.jsp\">Add Person</a> </td>\n");
+      out.write("        <td> <a href=\"person/viewperson.jsp\">View Person</a> </td>\n");
+      out.write("    </tr>\n");
+      out.write("</table>\n");
       out.write("</body>  \n");
       out.write("</html>  ");
     } catch (Throwable t) {
