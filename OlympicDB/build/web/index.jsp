@@ -17,6 +17,15 @@ table, th, td {
         <td> <a href="person/addpersonform.jsp">Add Person</a> </td>
         <td> <a href="person/viewperson.jsp">View Person</a> </td>
     </tr>
+    
+        <tr>
+        <th>Pays</th>
+        <td> <a href="pays/addpaysform.jsp">Add Pays</a> </td>
+        <td> <a href="pays/viewpays.jsp">View Pays</a> </td>
+    </tr>
 </table>
+
+
+
 </body>  
 </html>  

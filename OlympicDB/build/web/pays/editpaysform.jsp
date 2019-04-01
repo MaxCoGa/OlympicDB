@@ -5,21 +5,20 @@
 <title>Edit Form</title>  
 </head>  
 <body>  
-<%@page import="com.dao.PersonDao,com.entity.Person"%>  
+<%@page import="com.dao.PaysDao,com.entity.Pays"%>  
   
 <%  
 String id=request.getParameter("id");  
-Person u=PersonDao.getRecordById(Integer.parseInt(id));  
+Pays u=PaysDao.getRecordById(id);  
 %>  
   
 <h1>Edit Form</h1>  
-<form action="editperson.jsp" method="post">  
+<form action="editpays.jsp" method="post">  
 <input type="hidden" name="id" value="<%=u.getId() %>"/>  
-<table>  
-<tr><td>Nom:</td><td>  
-<input type="text" name="nom" value="<%= u.getNom()%>"/></td></tr>  
-<tr><td>Adresse:</td><td>  
-<input type="text" name="adresse" value="<%= u.getAdresse()%>"/></td></tr>  
+<table> 
+<tr><td>Id</td><td>  
+<input type="text" name="id" value="<%= u.getId()%>"/></td></tr>  
+
 
 
 <tr><td colspan="2"><input type="submit" value="Edit"/></td></tr>  

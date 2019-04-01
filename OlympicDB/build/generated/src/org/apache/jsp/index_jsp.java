@@ -60,7 +60,16 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <td> <a href=\"person/addpersonform.jsp\">Add Person</a> </td>\n");
       out.write("        <td> <a href=\"person/viewperson.jsp\">View Person</a> </td>\n");
       out.write("    </tr>\n");
+      out.write("    \n");
+      out.write("        <tr>\n");
+      out.write("        <th>Pays</th>\n");
+      out.write("        <td> <a href=\"pays/addpaysform.jsp\">Add Pays</a> </td>\n");
+      out.write("        <td> <a href=\"pays/viewpays.jsp\">View Pays</a> </td>\n");
+      out.write("    </tr>\n");
       out.write("</table>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("</body>  \n");
       out.write("</html>  ");
     } catch (Throwable t) {
