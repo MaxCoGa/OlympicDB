@@ -17,11 +17,22 @@ table, th, td {
         <td> <a href="person/addpersonform.jsp">Add Person</a> </td>
         <td> <a href="person/viewperson.jsp">View Person</a> </td>
     </tr>
-    
-        <tr>
+    <tr>
         <th>Pays</th>
         <td> <a href="pays/addpaysform.jsp">Add Pays</a> </td>
         <td> <a href="pays/viewpays.jsp">View Pays</a> </td>
+    </tr>
+     </tr>
+        <tr>
+        <th>Disicipline</th>
+        <td> <a href="discipline/adddisciplineform.jsp">Add Discipline</a> </td>
+        <td> <a href="discipline/viewdiscipline.jsp">View Discipline</a> </td>
+    </tr>
+     </tr>
+        <tr>
+        <th>Facility</th>
+        <td> <a href="facility/addfacilityform.jsp">Add Facility</a> </td>
+        <td> <a href="facility/viewfacility.jsp">View Facility</a> </td>
     </tr>
 </table>
 

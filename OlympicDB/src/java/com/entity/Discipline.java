@@ -11,27 +11,40 @@ import java.io.Serializable;
  *
  * @author Maxime
  */
-public class Pays implements Serializable {
-    private String id;
 
-    public Pays() {
+public class Discipline implements Serializable {
+
+    private Integer id;
+
+    private String nom;
+
+    public Discipline() {
     }
 
-    public Pays(String id) {
+    public Discipline(Integer id) {
         this.id = id;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
-    
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+
     @Override
     public String toString() {
-        return "com.entity.Pays[ id=" + id + " ]";
+        return "com.entity.Discipline[ id=" + id + " ]";
     }
     
 }

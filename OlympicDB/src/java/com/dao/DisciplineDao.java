@@ -2,9 +2,9 @@ package com.dao;
 import java.sql.*;  
 import java.util.ArrayList;  
 import java.util.List;  
-import com.entity.Pays;
+import com.entity.Discipline;
 
-public class PaysDao {  
+public class DisciplineDao {  
   
 public static Connection getConnection(){  
     Connection con=null;  
@@ -14,65 +14,71 @@ public static Connection getConnection(){
     }catch(Exception e){System.out.println(e);}  
     return con;  
 }  
-public static int save(Pays u){  
+public static int save(Discipline u){  
     int status=0;  
     try{  
         Connection con=getConnection();  
         PreparedStatement ps=con.prepareStatement(  
-"insert into pays(id) values(?)");  
-        ps.setString(1,u.getId()); 
+"insert into discipline(id,nom) values(?,?)");  
+        ps.setInt(1,u.getId());
+        ps.setString(2,u.getNom());   
         
         status=ps.executeUpdate();  
     }catch(Exception e){System.out.println(e);}  
     return status;  
 }  
-public static int update(Pays u){  
+public static int update(Discipline u){  
     int status=0;  
     try{  
         Connection con=getConnection();  
-        PreparedStatement ps=con.prepareStatement("update pays where id=?");
-        ps.setString(1,u.getId());
+        PreparedStatement ps=con.prepareStatement(  
+"update discipline set nom=? where id=?");
+        ps.setString(1,u.getNom());  
+
+        ps.setInt(2,u.getId());
         status=ps.executeUpdate();  
     }catch(Exception e){System.out.println(e);}  
     return status;  
 }  
-public static int delete(Pays u){  
+public static int delete(Discipline u){  
     int status=0;  
     try{  
         Connection con=getConnection();  
-        PreparedStatement ps=con.prepareStatement("delete from pays where id=?");  
-        ps.setString(1,u.getId());  
+        PreparedStatement ps=con.prepareStatement("delete from discipline where id=?");  
+        ps.setInt(1,u.getId());  
         status=ps.executeUpdate();  
     }catch(Exception e){System.out.println(e);}  
   
     return status;  
 }  
-public static List<Pays> getAllRecords(){  
-    List<Pays> list=new ArrayList<Pays>();  
+public static List<Discipline> getAllRecords(){  
+    List<Discipline> list=new ArrayList<Discipline>();  
       
     try{  
         Connection con=getConnection();  
-        PreparedStatement ps=con.prepareStatement("select * from pays");  
+        PreparedStatement ps=con.prepareStatement("select * from discipline");  
         ResultSet rs=ps.executeQuery();  
         while(rs.next()){  
-            Pays u=new Pays();  
-            u.setId(rs.getString("id"));  
+            Discipline u=new Discipline();  
+            u.setId(rs.getInt("id"));  
+            u.setNom(rs.getString("nom"));  
+ 
             list.add(u);  
         }  
     }catch(Exception e){System.out.println(e);}  
     return list;  
 }  
-public static Pays getRecordById(String id){  
-    Pays u=null;  
+public static Discipline getRecordById(int id){  
+    Discipline u=null;  
     try{  
         Connection con=getConnection();  
-        PreparedStatement ps=con.prepareStatement("select * from pays where id=?");  
-        ps.setString(1,id);  
+        PreparedStatement ps=con.prepareStatement("select * from discipline where id=?");  
+        ps.setInt(1,id);  
         ResultSet rs=ps.executeQuery();  
         while(rs.next()){  
-            u=new Pays();  
-            u.setId(rs.getString("id"));  
- 
+            u=new Discipline();  
+            u.setId(rs.getInt("id"));  
+            u.setNom(rs.getString("nom"));  
         }  
     }catch(Exception e){System.out.println(e);}  
     return u;  
