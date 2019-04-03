@@ -14,23 +14,23 @@ import java.io.Serializable;
 
 public class Discipline implements Serializable {
 
-    private Integer id;
+    private Integer did;
 
     private String nom;
 
     public Discipline() {
     }
 
-    public Discipline(Integer id) {
-        this.id = id;
+    public Discipline(Integer did) {
+        this.did = did;
     }
 
     public Integer getId() {
-        return id;
+        return did;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer did) {
+        this.did = did;
     }
 
     public String getNom() {
@@ -44,7 +44,7 @@ public class Discipline implements Serializable {
 
     @Override
     public String toString() {
-        return "com.entity.Discipline[ id=" + id + " ]";
+        return "com.entity.Discipline[ id=" + did + " ]";
     }
     
 }

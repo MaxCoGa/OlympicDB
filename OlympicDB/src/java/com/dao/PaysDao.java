@@ -19,7 +19,7 @@ public static int save(Pays u){
     try{  
         Connection con=getConnection();  
         PreparedStatement ps=con.prepareStatement(  
-"insert into pays(id) values(?)");  
+"insert into pays(pid) values(?)");  
         ps.setString(1,u.getId()); 
         
         status=ps.executeUpdate();  
@@ -30,7 +30,7 @@ public static int update(Pays u){
     int status=0;  
     try{  
         Connection con=getConnection();  
-        PreparedStatement ps=con.prepareStatement("update pays where id=?");
+        PreparedStatement ps=con.prepareStatement("update pays where pid=?");
         ps.setString(1,u.getId());
         status=ps.executeUpdate();  
     }catch(Exception e){System.out.println(e);}  
@@ -40,7 +40,7 @@ public static int delete(Pays u){
     int status=0;  
     try{  
         Connection con=getConnection();  
-        PreparedStatement ps=con.prepareStatement("delete from pays where id=?");  
+        PreparedStatement ps=con.prepareStatement("delete from pays where pid=?");  
         ps.setString(1,u.getId());  
         status=ps.executeUpdate();  
     }catch(Exception e){System.out.println(e);}  
@@ -56,22 +56,22 @@ public static List<Pays> getAllRecords(){
         ResultSet rs=ps.executeQuery();  
         while(rs.next()){  
             Pays u=new Pays();  
-            u.setId(rs.getString("id"));  
+            u.setId(rs.getString("pid"));  
             list.add(u);  
         }  
     }catch(Exception e){System.out.println(e);}  
     return list;  
 }  
-public static Pays getRecordById(String id){  
+public static Pays getRecordById(String pid){  
     Pays u=null;  
     try{  
         Connection con=getConnection();  
-        PreparedStatement ps=con.prepareStatement("select * from pays where id=?");  
-        ps.setString(1,id);  
+        PreparedStatement ps=con.prepareStatement("select * from pays where pid=?");  
+        ps.setString(1,pid);  
         ResultSet rs=ps.executeQuery();  
         while(rs.next()){  
             u=new Pays();  
-            u.setId(rs.getString("id"));  
+            u.setId(rs.getString("pid"));  
  
         }  
     }catch(Exception e){System.out.println(e);}  

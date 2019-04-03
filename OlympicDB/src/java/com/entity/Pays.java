@@ -12,26 +12,26 @@ import java.io.Serializable;
  * @author Maxime
  */
 public class Pays implements Serializable {
-    private String id;
+    private String pid;
 
     public Pays() {
     }
 
-    public Pays(String id) {
-        this.id = id;
+    public Pays(String pid) {
+        this.pid = pid;
     }
 
     public String getId() {
-        return id;
+        return pid;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(String pid) {
+        this.pid = pid;
     }
     
     @Override
     public String toString() {
-        return "com.entity.Pays[ id=" + id + " ]";
+        return "com.entity.Pays[ id=" + pid + " ]";
     }
     
 }

@@ -19,9 +19,9 @@ request.setAttribute("list",list);
 %>  
   
 <table border="1" width="90%">  
-<tr><th>Id</th><th>Capacity</th><th>Adresses</th><th>Nom</th> <th>Edit</th><th>Delete</th></tr>  
+<tr><th>Id</th><th>Capacity</th><th>Adresses</th><th>Nom</th><th>Competition</th><th>Training</th> <th>Edit</th><th>Delete</th></tr>  
 <c:forEach items="${list}" var="u">  
-<tr><td>${u.getId()}</td><td>${u.getCapacity()}</td><td>${u.getAdresses()}</td><td>${u.getNom()}</td>  
+<tr><td>${u.getId()}</td><td>${u.getCapacity()}</td><td>${u.getAdresses()}</td><td>${u.getNom()}</td><td>${u.getCompetition()}</td><td>${u.getTraining()}</td>  
     
 <td><a href="editfacilityform.jsp?id=${u.getId()}">Edit</a></td>  
 <td><a href="deletefacility.jsp?id=${u.getId()}">Delete</a></td></tr>  

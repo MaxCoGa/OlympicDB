@@ -5,53 +5,77 @@
  */
 package com.entity;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Maxime
  */
-public class Facility {
+public class Facility implements Serializable {
     
     
-    private Integer facility_id;
-    private int capacity;
-    private String adresses;
-    private String nom;
+    private Integer fid;
+    private int cap;
+    private String adr;
+    private String descr;
+    private Boolean competition;
+    private Boolean training;
 
+    public Boolean getTraining() {
+        return training;
+    }
+
+    public void setTraining(Boolean training) {
+        this.training = training;
+    }
+
+    public Boolean getCompetition() {
+        return competition;
+    }
+
+    public void setCompetition(Boolean competition) {
+        this.competition = competition;
+    }
+
+    
+    public Facility(){
+        
+    }
     public Integer getId() {
-        return facility_id;
+        return fid;
     }
 
     public void setId(Integer facility_id) {
-        this.facility_id = facility_id;
+        this.fid = facility_id;
     }
 
     public int getCapacity() {
-        return capacity;
+        return cap;
     }
 
     public void setCapacity(int capacity) {
-        this.capacity = capacity;
+        this.cap = capacity;
     }
 
     public String getAdresses() {
-        return adresses;
+        return adr;
     }
 
     public void setAdresses(String adresses) {
-        this.adresses = adresses;
+        this.adr = adresses;
     }
 
     public String getNom() {
-        return nom;
+        return descr;
     }
 
     public void setNom(String nom) {
-        this.nom = nom;
+        this.descr = nom;
     }
     
     @Override
     public String toString() {
-        return "com.Facility[ id=" + facility_id + " ]";
+        return "com.Facility[ id=" + fid + " ]";
     }
     
     

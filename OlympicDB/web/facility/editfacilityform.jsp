@@ -21,7 +21,11 @@ Facility u=FacilityDao.getRecordById(Integer.parseInt(id));
 <tr><td>Adresses:</td><td>  
 <input type="text" name="adresses" value="<%= u.getAdresses()%>"/></td></tr>  
 <tr><td>Nom:</td><td>  
-<input type="text" name="nom" value="<%= u.getNom()%>"/></td></tr> 
+<input type="text" name="nom" value="<%= u.getNom()%>"/></td></tr>
+<tr><td>Competition:</td><td>  
+<input type="text" name="competition" value="<%= u.getCompetition()%>"/></td></tr>
+<tr><td>Training:</td><td>  
+<input type="text" name="training" value="<%= u.getTraining()%>"/></td></tr>
 
 <tr><td colspan="2"><input type="submit" value="Edit"/></td></tr>  
 </table>  

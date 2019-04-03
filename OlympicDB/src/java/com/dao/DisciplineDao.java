@@ -19,9 +19,10 @@ public static int save(Discipline u){
     try{  
         Connection con=getConnection();  
         PreparedStatement ps=con.prepareStatement(  
-"insert into discipline(id,nom) values(?,?)");  
+"insert into discipline(did,nom) values(?,?)");  
         ps.setInt(1,u.getId());
-        ps.setString(2,u.getNom());   
+        ps.setString(2,u.getNom());  
+ 
         
         status=ps.executeUpdate();  
     }catch(Exception e){System.out.println(e);}  
@@ -32,9 +33,9 @@ public static int update(Discipline u){
     try{  
         Connection con=getConnection();  
         PreparedStatement ps=con.prepareStatement(  
-"update discipline set nom=? where id=?");
+"update discipline set nom=? where did=?");
         ps.setString(1,u.getNom());  
-
+        
         ps.setInt(2,u.getId());
         status=ps.executeUpdate();  
     }catch(Exception e){System.out.println(e);}  
@@ -44,7 +45,7 @@ public static int delete(Discipline u){
     int status=0;  
     try{  
         Connection con=getConnection();  
-        PreparedStatement ps=con.prepareStatement("delete from discipline where id=?");  
+        PreparedStatement ps=con.prepareStatement("delete from discipline where did=?");  
         ps.setInt(1,u.getId());  
         status=ps.executeUpdate();  
     }catch(Exception e){System.out.println(e);}  
@@ -60,25 +61,24 @@ public static List<Discipline> getAllRecords(){
         ResultSet rs=ps.executeQuery();  
         while(rs.next()){  
             Discipline u=new Discipline();  
-            u.setId(rs.getInt("id"));  
-            u.setNom(rs.getString("nom"));  
- 
+            u.setId(rs.getInt("did"));  
+            u.setNom(rs.getString("nom"));   
             list.add(u);  
         }  
     }catch(Exception e){System.out.println(e);}  
     return list;  
 }  
-public static Discipline getRecordById(int id){  
+public static Discipline getRecordById(int did){  
     Discipline u=null;  
     try{  
         Connection con=getConnection();  
-        PreparedStatement ps=con.prepareStatement("select * from discipline where id=?");  
-        ps.setInt(1,id);  
+        PreparedStatement ps=con.prepareStatement("select * from discipline where did=?");  
+        ps.setInt(1,did);  
         ResultSet rs=ps.executeQuery();  
         while(rs.next()){  
             u=new Discipline();  
-            u.setId(rs.getInt("id"));  
-            u.setNom(rs.getString("nom"));  
+            u.setId(rs.getInt("did"));  
+            u.setNom(rs.getString("nom"));   
         }  
     }catch(Exception e){System.out.println(e);}  
     return u;  
