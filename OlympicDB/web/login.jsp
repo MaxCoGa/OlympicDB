@@ -62,7 +62,7 @@
     <th colspan="2" align="center" valign="top">Please enter login details</th>
    </tr>
    <tr height="50">
-    <td valign="middle" align="right">id</td>
+    <td valign="middle" align="right">Employee id</td>
     <td align="left"><input name="id" size="20" value=""  type="text">
     </td>
    </tr>

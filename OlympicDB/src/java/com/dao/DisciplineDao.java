@@ -82,5 +82,22 @@ public static Discipline getRecordById(int did){
         }  
     }catch(Exception e){System.out.println(e);}  
     return u;  
+}
+
+public static List<Discipline> getQuerry(String s){  
+    List<Discipline> list=new ArrayList<Discipline>();  
+      
+    try{  
+        Connection con=getConnection();  
+        PreparedStatement ps=con.prepareStatement("select * from discipline where (cast(did as TEXT) LIKE '%"+s+"%' or nom LIKE '%"+s+"%')");  
+        ResultSet rs=ps.executeQuery();  
+        while(rs.next()){  
+            Discipline u=new Discipline();  
+            u.setId(rs.getInt("did"));  
+            u.setNom(rs.getString("nom"));   
+            list.add(u);  
+        }  
+    }catch(Exception e){System.out.println(e);}  
+    return list;  
 }  
 }  

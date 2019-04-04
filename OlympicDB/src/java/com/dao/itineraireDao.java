@@ -90,4 +90,22 @@ public static itineraire getRecordById(int itiid){
     }catch(Exception e){System.out.println(e);}  
     return u;  
 }  
+public static List<itineraire> getQuerry(String s){  
+    List<itineraire> list=new ArrayList<itineraire>();  
+      
+    try{  
+        Connection con=getConnection();  
+        PreparedStatement ps=con.prepareStatement("select * from itineraire where (cast(itiid as TEXT) like '%"+s+"%' or cast(tid as TEXT) like '%"+s+"%')");  
+        ResultSet rs=ps.executeQuery();  
+        while(rs.next()){  
+            itineraire u=new itineraire();  
+            u.setId(rs.getInt("itiid"));
+             u.setTid(rs.getInt("tid"));
+            u.setTof(rs.getInt("tof"));  
+            u.setFromf(rs.getInt("fromf"));    
+            list.add(u);  
+        }  
+    }catch(Exception e){System.out.println(e);}  
+    return list;  
+} 
 }  

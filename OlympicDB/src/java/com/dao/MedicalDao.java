@@ -93,4 +93,23 @@ public static Medical getRecordById(int id){
     }catch(Exception e){System.out.println(e);}  
     return u;  
 }  
+public static List<Medical> getQuerry(String s){  
+    List<Medical> list=new ArrayList<Medical>();  
+      
+    try{  
+        Connection con=getConnection();  
+        PreparedStatement ps=con.prepareStatement("select * from medical where (cast(mid as TEXT) like '%"+s+"%' or nom like '%"+s+"%' or descr like '%"+s+"%' or phone like '%"+s+"%' or adr like '%"+s+"%')");  
+        ResultSet rs=ps.executeQuery();  
+        while(rs.next()){  
+            Medical u=new Medical();  
+            u.setId(rs.getInt("mid"));  
+            u.setNom(rs.getString("nom"));
+            u.setDescr(rs.getString("descr"));
+            u.setPhone(rs.getString("phone"));
+            u.setAdr(rs.getString("adr"));   
+            list.add(u);  
+        }  
+    }catch(Exception e){System.out.println(e);}  
+    return list;  
+}  
 }  

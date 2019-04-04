@@ -11,7 +11,7 @@ table, th, td {
 </head>  
 <body>  
 <h1>Olympic Database</h1>  
-<table style="width:50%">
+<table style="width:100%">
     <tr>
         <th>Employee</th>
         <td> <a href="employee/addform.jsp">Add Employee</a> </td>

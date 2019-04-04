@@ -85,5 +85,23 @@ public static Epreuve getRecordById(int eid){
         }  
     }catch(Exception e){System.out.println(e);}  
     return u;  
+}
+
+public static List<Epreuve> getQuerry(String s){  
+    List<Epreuve> list=new ArrayList<Epreuve>();  
+      
+    try{  
+        Connection con=getConnection();  
+        PreparedStatement ps=con.prepareStatement("select * from epreuve where (cast(eid as TEXT) Like '%"+s+"%' or cast(did as TEXT) Like '%"+s+"%' or descr Like '%"+s+"%')");  
+        ResultSet rs=ps.executeQuery();  
+        while(rs.next()){  
+            Epreuve u=new Epreuve();  
+            u.setId(rs.getInt("eid"));
+            u.setDid(rs.getInt("did"));  
+            u.setDescr(rs.getString("descr"));   
+            list.add(u);  
+        }  
+    }catch(Exception e){System.out.println(e);}  
+    return list;  
 }  
 }  

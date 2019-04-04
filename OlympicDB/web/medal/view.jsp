@@ -24,7 +24,11 @@ request.setAttribute("liste",liste);
 List<Discipline> listd=DisciplineDao.getAllRecords();  
 request.setAttribute("listd",listd);
 %>  
-  
+   <form action="search.jsp" method="post">
+<tr><td>Search:</td><td>
+<input name="s" size="20" value=""  type="text">
+<input type="submit" value="Seach"/></td></tr>
+</form>
 <table border="1" width="90%">  
 <tr><th>Id</th><th>Type</th><th>Athlete</th><th>Discipline</th><th>Epreuve</th>  <th>Edit</th><th>Delete</th></tr>  
 <c:forEach items="${list}" var="u">

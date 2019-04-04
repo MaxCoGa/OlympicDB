@@ -54,7 +54,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</head>  \n");
       out.write("<body>  \n");
       out.write("<h1>Olympic Database</h1>  \n");
-      out.write("<table style=\"width:50%\">\n");
+      out.write("<table style=\"width:100%\">\n");
       out.write("    <tr>\n");
       out.write("        <th>Employee</th>\n");
       out.write("        <td> <a href=\"employee/addform.jsp\">Add Employee</a> </td>\n");

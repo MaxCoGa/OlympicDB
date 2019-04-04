@@ -17,7 +17,13 @@
 List<Athlete> list=AthleteDao.getAllRecords();  
 request.setAttribute("list",list);  
 %>  
-  
+ 
+<form action="search.jsp" method="post">
+<tr><td>Search:</td><td>
+<input name="s" size="20" value=""  type="text">
+<input type="submit" value="Seach"/></td></tr>
+</form>
+
 <table border="1" width="90%">  
 <tr><th>Id</th><th>Prenom</th><th>Nom</th><th>Pays</th><th>Age</th><th>Adresse</th><th>Residence ID</th> <th>Edit</th><th>Delete</th></tr>  
 <c:forEach items="${list}" var="u">  
@@ -27,7 +33,10 @@ request.setAttribute("list",list);
 <td><a href="delete.jsp?id=${u.getId()}">Delete</a></td></tr>  
 </c:forEach>  
 </table>  
-<br/><a href="addform.jsp">Add New Athlete</a>  
+<br/><a href="addform.jsp">Add New Athlete</a>
+
+
+
   
 </body>  
 </html>  

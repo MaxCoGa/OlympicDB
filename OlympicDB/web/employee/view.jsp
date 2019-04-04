@@ -17,7 +17,12 @@
 List<Employee> list=EmployeeDao.getAllRecords();  
 request.setAttribute("list",list);  
 %>  
-  
+<form action="search.jsp" method="post">
+<tr><td>Search:</td><td>
+<input name="s" size="20" value=""  type="text">
+<input type="submit" value="Seach"/></td></tr>
+</form>
+
 <table border="1" width="90%">  
 <tr><th>Id</th><th>Password</th><th>Prenom</th><th>Nom</th><th>Phone</th><th>Adresse</th><th>Residence ID</th> <th>Edit</th><th>Delete</th></tr>  
 <c:forEach items="${list}" var="u">  

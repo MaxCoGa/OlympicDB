@@ -102,4 +102,27 @@ public static Athlete getRecordById(int id){
     }catch(Exception e){System.out.println(e);}  
     return u;  
 }  
+
+
+public static List<Athlete> getQuerry(String s){  
+    List<Athlete> list=new ArrayList<Athlete>();  
+      
+    try{  
+        Connection con=getConnection();  
+        PreparedStatement ps=con.prepareStatement("select * from athlete where (cast(aid as TEXT) LIKE '%"+s+"%' or pnom LIKE '%"+s+"%' or nom LIKE '%"+s+"%' or pid LIKE '%"+s+"%' or cast(age as TEXT) LIKE '%"+s+"%' or adr LIKE '%"+s+"%' or cast(rid as TEXT) LIKE '%"+s+"%')");//(pnom LIKE '%?%' or nom LIKE '%?%' or pid LIKE '%?%' or adr LIKE '%?%')
+        ResultSet rs=ps.executeQuery();  
+        while(rs.next()){  
+            Athlete u=new Athlete();  
+            u.setId(rs.getInt("aid"));  
+            u.setPnom(rs.getString("pnom")); 
+            u.setNom(rs.getString("nom")); 
+            u.setPid(rs.getString("pid"));
+            u.setAge(rs.getInt("age")); 
+            u.setAdr(rs.getString("adr")); 
+            u.setRid(rs.getInt("rid"));  
+            list.add(u);  
+        }  
+    }catch(Exception e){System.out.println(e);}  
+    return list;  
+}  
 }  

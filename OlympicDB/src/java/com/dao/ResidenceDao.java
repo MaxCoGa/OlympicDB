@@ -90,4 +90,33 @@ public static Residence getRecordById(int id){
     }catch(Exception e){System.out.println(e);}  
     return u;  
 }  
+public static List<Residence> getQuerry(String s){  
+    List<Residence> list=new ArrayList<Residence>();  
+      
+    try{
+        Connection con=getConnection();
+
+        PreparedStatement ps=con.prepareStatement("select * from residence where (cast(rid as TEXT) like '%"+s+"%' or cast(cap as TEXT) like '%"+s+"%' or adr like '%"+s+"%' or phone like '%"+s+"%')");  
+        ResultSet rs=ps.executeQuery();  
+        while(rs.next()){  
+            Residence u=new Residence();  
+            u.setId(rs.getInt("rid"));
+            u.setCap(rs.getInt("cap"));
+            u.setAdr(rs.getString("adr"));
+            u.setPhone(rs.getString("phone")); 
+            list.add(u);  
+        }  
+    }catch(Exception e){System.out.println(e);}  
+    return list;  
+}  
+public static boolean isInteger( String input ) {
+    try {
+        Integer.parseInt( input );
+        return true;
+    }
+    catch( Exception e ) {
+        return false;
+    }
+}
+
 }  

@@ -106,7 +106,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <th colspan=\"2\" align=\"center\" valign=\"top\">Please enter login details</th>\n");
       out.write("   </tr>\n");
       out.write("   <tr height=\"50\">\n");
-      out.write("    <td valign=\"middle\" align=\"right\">id</td>\n");
+      out.write("    <td valign=\"middle\" align=\"right\">Employee id</td>\n");
       out.write("    <td align=\"left\"><input name=\"id\" size=\"20\" value=\"\"  type=\"text\">\n");
       out.write("    </td>\n");
       out.write("   </tr>\n");

@@ -19,6 +19,11 @@ request.setAttribute("list",list);
 List<Facility> listf=FacilityDao.getAllRecords();  
 request.setAttribute("listf",listf); 
 %>  
+  <form action="search.jsp" method="post">
+<tr><td>Search:</td><td>
+<input name="s" size="20" value=""  type="text">
+<input type="submit" value="Seach"/></td></tr>
+</form>
   
 <table border="1" width="90%">  
 <tr><th>Id</th><th>Transport id</th><th>To</th><th>From</th> <th>Edit</th><th>Delete</th></tr>  

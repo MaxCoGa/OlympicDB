@@ -101,5 +101,27 @@ public static Employee getRecordById(int id){
         }  
     }catch(Exception e){System.out.println(e);}  
     return u;  
+}
+public static List<Employee> getQuerry(String s){  
+    List<Employee> list=new ArrayList<Employee>();  
+      
+    try{  
+        Connection con=getConnection();  
+        PreparedStatement ps=con.prepareStatement("select * from employee where (cast(eid as TEXT) LIKE '%"+s+"%' or psw LIKE '%"+s+"%' or pnom LIKE '%"+s+"%' or nom LIKE '%"+s+"%' or phone LIKE '%"+s+"%' or adr LIKE '%"+s+"%' or cast(rid as TEXT) LIKE '%"+s+"%')");  
+        ResultSet rs=ps.executeQuery();  
+        while(rs.next()){  
+            Employee u=new Employee();  
+            u.setId(rs.getInt("eid"));  
+            u.setPsw(rs.getString("psw"));
+            u.setPnom(rs.getString("pnom")); 
+            u.setNom(rs.getString("nom")); 
+            u.setPhone(rs.getString("phone")); 
+            u.setAdr(rs.getString("adr")); 
+            u.setRid(rs.getInt("rid"));  
+            list.add(u);  
+        }  
+    }catch(Exception e){System.out.println(e);}  
+    return list;  
 }  
+
 }  

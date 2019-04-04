@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;  
 import com.entity.Medal;
 
+
 public class MedalDao {  
   
 public static Connection getConnection(){  
@@ -90,5 +91,25 @@ public static Medal getRecordById(int mid){
         }  
     }catch(Exception e){System.out.println(e);}  
     return u;  
+}  
+public static List<Medal> getQuerry(String s){  
+    List<Medal> list=new ArrayList<Medal>();  
+      
+    try{  
+        Connection con=getConnection();  
+        PreparedStatement ps=con.prepareStatement("select * from Medal where (cast(mid as TEXT) Like '%"+s+"%' or type Like '%"+s+"%' or cast(eid as TEXT) Like '%"+s+"%' or cast(aid as TEXT) Like '%"+s+"%')");  
+        ResultSet rs=ps.executeQuery();  
+        while(rs.next()){  
+            Medal u=new Medal();  
+            u.setId(rs.getInt("mid"));
+            u.setType(rs.getString("type")); 
+            u.setEid(rs.getInt("eid")); 
+            u.setAid(rs.getInt("aid")); 
+            list.add(u);  
+        }  
+    }catch(Exception e){System.out.println(e);}
+      
+    
+    return list;  
 }  
 }  

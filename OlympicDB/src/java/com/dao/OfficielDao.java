@@ -86,4 +86,21 @@ public static Officiel getRecordById(int id){
     }catch(Exception e){System.out.println(e);}  
     return u;  
 }  
+public static List<Officiel> getQuerry(String s){  
+    List<Officiel> list=new ArrayList<Officiel>();  
+      
+    try{  
+        Connection con=getConnection();  
+        PreparedStatement ps=con.prepareStatement("select * from Officiel where (cast(oid as TEXT) like '%"+s+"%' or nom like '%"+s+"%') ");  
+        ResultSet rs=ps.executeQuery();  
+        while(rs.next()){  
+            Officiel u=new Officiel();  
+            u.setId(rs.getInt("oid"));  
+            u.setNom(rs.getString("nom")); 
+          
+            list.add(u);  
+        }  
+    }catch(Exception e){System.out.println(e);}  
+    return list;  
+}  
 }  

@@ -31,9 +31,15 @@ request.setAttribute("listo",listo);
  
 
 %>  
-  
+     <form action="search.jsp" method="post">
+<tr><td>Search:</td><td>
+<input name="r" size="20" value=""  type="text">
+<input type="submit" value="Referee"/></td>
+<input name="a" size="20" value=""  type="text">
+<input type="submit" value="Athlete"/></td>
+</form>
 <table border="1" width="90%">  
-<tr><th>Id</th><th>aid</th> <th>eid</th><th>Delete</th></tr>  
+<tr><th>Referee</th><th>Athlete</th> <th>Epreuve</th><th>Edit</th><th>Delete</th></tr>  
 <c:forEach items="${lists}" var="s">
     <c:forEach items="${lista}" var="a">
         <c:if test="${(s.getAid() == a.getId())}" >

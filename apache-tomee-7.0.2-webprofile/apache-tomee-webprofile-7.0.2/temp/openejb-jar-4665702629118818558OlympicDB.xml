@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<openejb-jar xmlns="http://www.openejb.org/openejb-jar/1.1">
+    <properties></properties>
+    <ejb-deployment container-id="Default Stateless Container" deployment-id="MedalObtainFacade" ejb-name="MedalObtainFacade"/>
+    <ejb-deployment container-id="Default Stateless Container" deployment-id="DisciplineFacade" ejb-name="DisciplineFacade"/>
+    <ejb-deployment container-id="Default Stateless Container" deployment-id="ComplexFacade" ejb-name="ComplexFacade"/>
+    <ejb-deployment container-id="Default Stateless Container" deployment-id="UsageFacade" ejb-name="UsageFacade"/>
+    <ejb-deployment container-id="Default Stateless Container" deployment-id="MedalFacade" ejb-name="MedalFacade"/>
+    <ejb-deployment container-id="Default Stateless Container" deployment-id="DelegateToFacade" ejb-name="DelegateToFacade"/>
+    <ejb-deployment container-id="Default Stateless Container" deployment-id="EmployeeFacade" ejb-name="EmployeeFacade"/>
+    <ejb-deployment container-id="Default Stateless Container" deployment-id="MedicalCenterFacade" ejb-name="MedicalCenterFacade"/>
+    <ejb-deployment container-id="Default Stateless Container" deployment-id="StaysInFacade" ejb-name="StaysInFacade"/>
+    <ejb-deployment container-id="Default Stateless Container" deployment-id="ResidenceFacade" ejb-name="ResidenceFacade"/>
+    <ejb-deployment container-id="Default Stateless Container" deployment-id="RefereeFacade" ejb-name="RefereeFacade"/>
+    <ejb-deployment container-id="Default Stateless Container" deployment-id="OfficielFacade" ejb-name="OfficielFacade"/>
+    <ejb-deployment container-id="Default Stateless Container" deployment-id="HasaFacilityFacade" ejb-name="HasaFacilityFacade"/>
+    <ejb-deployment container-id="Default Stateless Container" deployment-id="TrainerFacade" ejb-name="TrainerFacade"/>
+    <ejb-deployment container-id="Default Managed Container" deployment-id="OlympicDB.Comp2013088838" ejb-name="OlympicDB.Comp"/>
+</openejb-jar>

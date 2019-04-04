@@ -17,7 +17,11 @@
 List<Medical> list=MedicalDao.getAllRecords();  
 request.setAttribute("list",list);  
 %>  
-  
+    <form action="search.jsp" method="post">
+<tr><td>Search:</td><td>
+<input name="s" size="20" value=""  type="text">
+<input type="submit" value="Seach"/></td></tr>
+</form>
 <table border="1" width="90%">  
 <tr><th>Id</th><th>Nom</th><th>Description</th><th>Phone</th><th>Adresse</th> <th>Edit</th><th>Delete</th></tr>  
 <c:forEach items="${list}" var="u">  

@@ -86,4 +86,22 @@ public static Transport getRecordById(int tid){
     }catch(Exception e){System.out.println(e);}  
     return u;  
 }  
+
+public static List<Transport> getQuerry(String i){  
+    List<Transport> list=new ArrayList<Transport>();  
+      
+    try{  
+        Connection con=getConnection();  
+        PreparedStatement ps=con.prepareStatement("select * from transport where (CAST(tid AS TEXT) like '%"+i+"%' or CAST(cap AS TEXT) like '%"+i+"%' or CAST(freq AS TEXT) like '%"+i+"%')");  
+        ResultSet rs=ps.executeQuery();  
+        while(rs.next()){  
+            Transport u=new Transport();  
+            u.setId(rs.getInt("tid"));
+            u.setCap(rs.getInt("cap"));  
+            u.setFreq(rs.getInt("freq"));    
+            list.add(u);  
+        }  
+    }catch(Exception e){System.out.println(e);}  
+    return list;  
+}  
 }  

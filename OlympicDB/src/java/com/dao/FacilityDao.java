@@ -99,5 +99,26 @@ public static Facility getRecordById(int id){
         }  
     }catch(Exception e){System.out.println(e);}  
     return u;  
+} 
+public static List<Facility> getQuerry(String s){  
+    List<Facility> list=new ArrayList<Facility>();  
+
+    try{
+        Connection con=getConnection();  
+        PreparedStatement ps=con.prepareStatement("select * from facility where (cast(fid as TEXT) Like '%"+s+"%' or cast(cap as TEXT) Like '%"+s+"%' or adr Like '%"+s+"%' or descr LIKE '%"+s+"%' or cast(competition as TEXT) Like '%"+s+"%' or cast(training as TEXT) Like '%"+s+"%')");  
+        ResultSet rs=ps.executeQuery();  
+        while(rs.next()){  
+            Facility u=new Facility();  
+            u.setId(rs.getInt("fid"));
+            u.setCapacity(rs.getInt("cap"));
+            u.setAdresses(rs.getString("adr"));
+            u.setNom(rs.getString("descr"));
+            u.setCompetition(rs.getBoolean("competition"));
+                        u.setTraining(rs.getBoolean("training"));
+
+            list.add(u);  
+        }  
+    }catch(Exception e){System.out.println(e);}  
+    return list;  
 }  
 }  
